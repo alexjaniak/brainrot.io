@@ -25,10 +25,15 @@ names = []
 name1 = driver.find_element(By.CLASS_NAME, "tiktok-1v8b11s-PCopyLinkText").text
 name1 = name1.split("/")[5].split("?")[0]
 names.append(name1)
-for _ in range(10):
+for _ in range(50):
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, "tiktok-1sltbs0-ButtonBasicButtonContainer-StyledVideoSwitch"))).click()
     time.sleep(.5)
     name1 = driver.find_element(By.CLASS_NAME, "tiktok-1v8b11s-PCopyLinkText").text
     name1 = name1.split("/")[5].split("?")[0]
     names.append(name1)
 print(names)
+
+import json
+
+with open('tiktoks.txt', 'w') as filehandle:
+    json.dump(names, filehandle)
