@@ -6,6 +6,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+  background-image: linear-gradient(to bottom right, black, gray, navy);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,11 +15,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -29,11 +32,52 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  text-shadow: 0px 0px 5px #123456;
+  height: 100vh;
+  background:
+    linear-gradient(-135deg, rgb(34, 76, 152) 10%, transparent),
+    repeating-linear-gradient(45deg, rgba(34, 76, 152, 1) 0%, rgba(31, 48, 94, 0.6) 5%, transparent 5%, transparent 10%),
+    repeating-linear-gradient(-45deg, rgba(34, 76, 152, 0.4) 0%, rgba(31, 48, 94, 0.5) 5%, transparent 5%, transparent 10%);
+  background-color: rgba(34, 76, 152, 0.25);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+.social {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 0.5em;
+  list-style-type: none;
+
+  li {
+    display: inline;
+    margin: 0.25em;
+  }
+
+  svg {
+    fill: white;
+    width: 1.75em;
+    height: 1.75em;
+  }
+}
+
+.title {
+  font-size: 5em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.text {
+  font-size: 1.25em;
 }
 
 button {
@@ -47,23 +91,44 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+@media only screen and (min-width: 420px) {
   :root {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
+
+    .social svg {
+      height: 2.25em;
+      width: 2.25em;
+    }
+
+    .title {
+      font-size: 8em;
+    }
+
+    .text {
+      font-size: 1.5em;
+    }
   }
 }
+
+
+
+
