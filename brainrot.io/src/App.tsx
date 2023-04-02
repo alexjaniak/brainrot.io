@@ -1,9 +1,11 @@
 import { useState, useEffect} from 'react';
 import './App.css';
-//import _ids from "./ids.json"
+//import _ids from "./ids.json
+import imageToAdd from "./brclean.png";
 
 var script = document.createElement('script');
 script.src = "https://code.jquery.com/jquery-3.6.3.min.js";
+
 
 
 class Queue<T> {
@@ -83,7 +85,7 @@ function App() {
     
   return (
     <div className="App">
-      <h1>Brain Rot</h1>
+      <img style={{ width: "12%", height: "18%" }} src={imageToAdd} alt="brlogo"></img>
       <div id="panel">
         {init()}
       </div>
