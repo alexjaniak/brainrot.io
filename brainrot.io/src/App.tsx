@@ -2,9 +2,9 @@ import { useState, useEffect} from 'react';
 import './App.css';
 import _ids from "./ids.json"
 import imageToAdd from "./brclean.png";
-
 var script = document.createElement('script');
 script.src = "https://code.jquery.com/jquery-3.6.3.min.js";
+
 
 
 class Queue<T> {
