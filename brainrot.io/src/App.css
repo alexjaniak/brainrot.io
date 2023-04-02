@@ -23,12 +23,11 @@
 
 .stream-container {
   height: 100%;
-  background-color: cyan;
 }
 
 .stream { 
   width: auto;
-  height: 565px;
+  height: 535px;
   border: none;
   overflow: hidden;
 }

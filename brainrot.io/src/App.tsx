@@ -1,7 +1,8 @@
 import { useState, useEffect} from 'react';
 import './App.css';
-import _ids from "./ids.json"
+//import _ids from "./ids.json
 import imageToAdd from "./brclean.png";
+
 var script = document.createElement('script');
 script.src = "https://code.jquery.com/jquery-3.6.3.min.js";
 
@@ -55,29 +56,32 @@ function waitForRender() {
 
 function App() {
   const queue = new Queue<string>()
+
+  const _ids = ["owtfveqKv_s", "P7WbYt7q7Ks", "NEZSa5NEREs", "oM0P1yNUstc", "P7WbYt7q7Ks"];
   _ids.forEach((_id) => {
     queue.enqueue(_id)
   });
 
+  function formatLink(id_: string) {
+    return "https://www.youtube.com/embed/" + id_ + "?autoplay=1&mute=1&enablejsapi=1";
+  }
+
   const changeVideo = async (event) => {
-    event.target.firstChild.src = "https://www.tiktok.com/embed/" + pullNextId(queue);
-    const a = await waitForRender();
-    console.log(event.target.firstChild.contents().find("css-uq19z6 e1hu91t76").text());
-    console.log(event.target.firstChild.contentWindow);
-    console.log(event.target.firstChild.contentDocument);
-    console.log(document.querySelector(".css-uq19z6"));
+    event.target.firstChild.src = formatLink(pullNextId(queue));
   };
+
 
   const init = () => {
     const streams = [];
     for (let i = 0; i < 4; i++) {
-      const embed_src = "https://www.tiktok.com/embed/" + pullNextId(queue);
+      const embed_src = formatLink(pullNextId(queue));
       streams.push(<div className="stream-container" onClick={changeVideo}>
-                      <iframe className="stream" src={embed_src} scrolling="no"></iframe>
+                      <iframe className="stream" src={embed_src} allow="autoplay"></iframe>
                    </div>);
     }
     return streams
   };
+
     
   return (
     <div className="App">
