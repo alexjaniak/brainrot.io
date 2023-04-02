@@ -19,8 +19,11 @@ driver.get('https://www.youtube.com/shorts/')
 #l = driver.find_element(By.CLASS_NAME, "xgplayer-container xgplayer xgplayer-pc no-controls xgplayer-playing")
 time.sleep(1)
 names = []
+name1 = ""
 for _ in range(50):
-    names.append(driver.current_url)
+    name1 = driver.current_url
+    name1 = name1.split("/")[4]
+    names.append(name1)
     WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.ID, "navigation-button-down"))).click()
     time.sleep(1)
 import json
